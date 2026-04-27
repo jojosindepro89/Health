@@ -48,7 +48,7 @@ export default function SignupPage() {
     if (!form.hospital) { setError('Hospital name is required'); return; }
     setLoading(true);
     await new Promise(r => setTimeout(r, 800));
-    const result = signup({ name: form.name, email: form.email, password: form.password, hospital: form.hospital, role: form.role as any });
+    const result = await signup({ name: form.name, email: form.email, password: form.password, hospital: form.hospital, role: form.role as any });
     if (result.success) {
       router.push('/dashboard');
     } else {

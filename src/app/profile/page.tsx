@@ -9,16 +9,11 @@ const tabs = ['Profile', 'Security', 'Notifications', 'Preferences'];
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState('Profile');
-  const { currentUser, setCurrentUser } = useStore();
+  const { currentUser } = useStore();
   const { toast } = useToast();
 
   const handleRoleToggle = () => {
-    const newRole = currentUser.role === 'super_admin' ? 'front_desk' : 'super_admin';
-    setCurrentUser({
-      name: newRole === 'super_admin' ? 'Admin DHS' : 'Front Desk User',
-      role: newRole
-    });
-    toast('success', `Switched role to ${newRole === 'super_admin' ? 'Super Admin' : 'Front Desk'}`);
+    toast('info', 'Role switching is managed via authentication. Log out and log in with a different account.');
   };
 
   return (

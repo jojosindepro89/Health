@@ -36,7 +36,7 @@ export default function PatientsPage() {
       setEditingPatient(p);
       setFormData({
         firstName: p.firstName, lastName: p.lastName, age: String(p.age),
-        gender: p.gender, phone: p.phone, email: p.email, hmo: p.hmo,
+        gender: p.gender as 'M' | 'F', phone: p.phone, email: p.email, hmo: p.hmo,
         dept: p.dept, address: p.address, bloodGroup: p.bloodGroup
       });
     } else {
@@ -131,14 +131,14 @@ export default function PatientsPage() {
             <tbody>
               {filtered.map(p => (
                 <tr key={p.id}>
-                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{p.id}</td>
+                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{p.patientCode}</td>
                   <td style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{p.firstName} {p.lastName}</td>
                   <td>{p.age}</td>
                   <td>{p.gender}</td>
                   <td>{p.phone}</td>
                   <td><span className="badge badge-muted">{p.hmo || 'Self Pay'}</span></td>
                   <td>{p.dept}</td>
-                  <td>{p.date}</td>
+                  <td>{new Date(p.createdAt).toLocaleDateString()}</td>
                   <td><span className={`badge ${statusMap[p.status]}`}>{p.status}</span></td>
                   <td>
                     <div style={{ display: 'flex', gap: 6 }}>

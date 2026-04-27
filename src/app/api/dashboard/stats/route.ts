@@ -16,7 +16,6 @@ export async function GET(req: NextRequest) {
     activeAdmissions,
     recentPatients,
     recentConsultations,
-    systemAlerts,
   ] = await Promise.all([
     db.patient.count(),
     db.patient.count({ where: { status: 'Active' } }),
@@ -35,13 +34,14 @@ export async function GET(req: NextRequest) {
       orderBy: { createdAt: 'desc' }, take: 5,
       include: { patient: { select: { firstName: true, lastName: true, patientCode: true } } },
     }),
-    // System alerts: outstanding items
-    Promise.resolve([
-      pendingLab > 0 ? `Lab results pending for ${pendingLab} patients` : null,
-      admittedPatients > 0 ? `${admittedPatients} beds currently occupied` : null,
-      pendingRx > 0 ? `${pendingRx} prescriptions awaiting dispensing` : null,
-    ].filter(Boolean)),
   ]);
+
+  // Build system alerts after the queries have resolved
+  const systemAlerts = [
+    pendingLab > 0 ? `Lab results pending for ${pendingLab} patients` : null,
+    admittedPatients > 0 ? `${admittedPatients} beds currently occupied` : null,
+    pendingRx > 0 ? `${pendingRx} prescriptions awaiting dispensing` : null,
+  ].filter(Boolean);
 
   return Response.json({
     stats: {

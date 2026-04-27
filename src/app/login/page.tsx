@@ -26,7 +26,7 @@ export default function LoginPage() {
     if (!email || !password) { setError('Please fill in all fields'); return; }
     setLoading(true); setError('');
     await new Promise(r => setTimeout(r, 600));
-    const result = login(email, password);
+    const result = await login(email, password);
     if (result.success) {
       router.push('/dashboard');
     } else {

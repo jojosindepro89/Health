@@ -194,8 +194,8 @@ export default function Dashboard() {
             <BarChart data={revenueData} barGap={4}>
               <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
               <XAxis dataKey="month" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} />
-              <YAxis tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `₦${(v / 1000).toFixed(0)}K`} />
-              <Tooltip contentStyle={{ background: '#111827', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, fontSize: 12 }} formatter={(v: number) => [`₦${v.toLocaleString()}`, '']} />
+              <YAxis tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v: unknown) => `₦${(Number(v) / 1000).toFixed(0)}K`} />
+              <Tooltip contentStyle={{ background: '#111827', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, fontSize: 12 }} formatter={(v: unknown) => [`₦${Number(v).toLocaleString()}`, '']} />
               <Bar dataKey="revenue" fill="#0d9488" radius={[4, 4, 0, 0]} name="Revenue" />
               <Bar dataKey="target" fill="rgba(6,182,212,0.25)" radius={[4, 4, 0, 0]} name="Target" />
             </BarChart>

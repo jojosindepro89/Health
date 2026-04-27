@@ -19,7 +19,7 @@ const revenueByDept = [
 const invoiceStatus: Record<string, string> = { Paid: 'badge-success', Pending: 'badge-warning', 'Part-Paid': 'badge-info' };
 
 export default function FinancePage() {
-  const { patients, invoices, addInvoice, updateInvoice, currentUser, addPrintLog, printLogs } = useStore();
+  const { patients, invoices, addInvoice, updateInvoice, currentUser, printInvoice, printLogs } = useStore();
   const { toast } = useToast();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,7 +47,6 @@ export default function FinancePage() {
     addInvoice({
       ...formData,
       amount: parseInt(formData.amount),
-      patientName: `${patient.firstName} ${patient.lastName}`,
       status: 'Pending',
       paid: 0
     });
@@ -82,8 +81,8 @@ export default function FinancePage() {
   };
 
   const handlePrint = (inv: Invoice) => {
-    addPrintLog(inv.id);
-    toast('success', `Invoice ${inv.id} sent to printer`);
+    printInvoice(inv.id);
+    toast('success', `Invoice ${inv.invCode} sent to printer`);
   };
 
   return (
@@ -124,7 +123,7 @@ export default function FinancePage() {
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" horizontal={false} />
                   <XAxis type="number" tick={{ fill: '#64748b', fontSize: 11 }} axisLine={false} tickLine={false} tickFormatter={(v) => `₦${(v / 1000).toFixed(0)}K`} />
                   <YAxis type="category" dataKey="dept" tick={{ fill: '#94a3b8', fontSize: 11 }} axisLine={false} tickLine={false} width={80} />
-                  <Tooltip contentStyle={{ background: '#111827', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, fontSize: 12 }} formatter={(v: number) => [`₦${v.toLocaleString()}`, 'Revenue']} />
+                  <Tooltip contentStyle={{ background: '#111827', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, fontSize: 12 }} formatter={(v: unknown) => [`₦${Number(v).toLocaleString()}`, 'Revenue']} />
                   <Bar dataKey="revenue" fill="#0d9488" radius={[0, 4, 4, 0]} />
                 </BarChart>
               </ResponsiveContainer>
@@ -165,10 +164,10 @@ export default function FinancePage() {
             <tbody>
               {invoices.map(inv => (
                 <tr key={inv.id}>
-                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{inv.id}</td>
+                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{inv.invCode}</td>
                   <td>
-                    <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{inv.patientName}</div>
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{inv.patientId}</div>
+                    <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{inv.patient ? `${inv.patient.firstName} ${inv.patient.lastName}` : inv.patientId}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{inv.patient?.patientCode ?? inv.patientId}</div>
                   </td>
                   <td style={{ fontSize: 12 }}>{inv.services}</td>
                   <td style={{ fontWeight: 600, color: 'var(--text-primary)' }}>₦{inv.amount.toLocaleString()}</td>
@@ -205,10 +204,10 @@ export default function FinancePage() {
               <tbody>
                 {printLogs.map(log => (
                   <tr key={log.id}>
-                    <td style={{ fontSize: 12, color: 'var(--text-muted)' }}>{log.id}</td>
+                    <td style={{ fontSize: 12, color: 'var(--text-muted)' }}>{log.logCode}</td>
                     <td style={{ fontWeight: 500, color: 'var(--primary-light)' }}>{log.invoiceId}</td>
-                    <td style={{ fontSize: 12 }}>{log.date}</td>
-                    <td style={{ fontSize: 12 }}>{log.printedBy}</td>
+                    <td style={{ fontSize: 12 }}>{new Date(log.createdAt).toLocaleString()}</td>
+                    <td style={{ fontSize: 12 }}>{log.printedById}</td>
                   </tr>
                 ))}
               </tbody>

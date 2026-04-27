@@ -27,7 +27,7 @@ export default function ClinicsPage() {
   const [selectedConsult, setSelectedConsult] = useState<Consultation | null>(null);
   
   const [formData, setFormData] = useState({
-    patientId: '', doctor: 'Dr. Emeka Cole', dept: 'General OPD',
+    patientId: '', doctorName: 'Dr. Emeka Cole', dept: 'General OPD',
     complaint: '', priority: 'Normal' as 'Normal' | 'Urgent'
   });
 
@@ -49,8 +49,8 @@ export default function ClinicsPage() {
 
     addConsultation({
       ...formData,
-      patientName: `${patient.firstName} ${patient.lastName}`,
-      diagnosis: '', notes: ''
+      diagnosis: '', notes: '',
+      status: 'Waiting',
     });
     toast('success', 'Patient added to queue');
     setIsModalOpen(false);
@@ -58,7 +58,7 @@ export default function ClinicsPage() {
 
   const handleStartConsultation = (c: Consultation) => {
     updateConsultation(c.id, { status: 'In Progress' });
-    toast('info', `Consultation started for ${c.patientName}`);
+    toast('info', `Consultation started for ${c.patient ? `${c.patient.firstName} ${c.patient.lastName}` : c.patientId}`);
   };
 
   const handleOpenComplete = (c: Consultation) => {
@@ -118,13 +118,13 @@ export default function ClinicsPage() {
               <tbody>
                 {queue.map(q => (
                   <tr key={q.id}>
-                    <td style={{ fontWeight: 600, color: 'var(--warning)', fontSize: 12 }}>{q.time}</td>
+                    <td style={{ fontWeight: 600, color: 'var(--warning)', fontSize: 12 }}>{new Date(q.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                     <td>
-                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{q.patientName}</div>
-                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{q.patientId}</div>
+                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{q.patient ? `${q.patient.firstName} ${q.patient.lastName}` : q.patientId}</div>
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{q.patient?.patientCode ?? q.patientId}</div>
                     </td>
                     <td style={{ fontSize: 12 }}>{q.complaint}</td>
-                    <td style={{ fontSize: 12 }}>{q.doctor}</td>
+                    <td style={{ fontSize: 12 }}>{q.doctorName}</td>
                     <td><span className={`badge ${priorityMap[q.priority]}`}>{q.priority}</span></td>
                     <td><button className="btn btn-sm btn-outline" onClick={() => handleStartConsultation(q)}>Start</button></td>
                   </tr>
@@ -169,9 +169,9 @@ export default function ClinicsPage() {
             <tbody>
               {[...active, ...completed].map(c => (
                 <tr key={c.id}>
-                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{c.id}</td>
-                  <td style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{c.patientName}</td>
-                  <td style={{ fontSize: 12 }}>{c.doctor}</td>
+                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{c.consultCode}</td>
+                  <td style={{ color: 'var(--text-primary)', fontWeight: 500 }}>{c.patient ? `${c.patient.firstName} ${c.patient.lastName}` : c.patientId}</td>
+                  <td style={{ fontSize: 12 }}>{c.doctorName}</td>
                   <td><span className="badge badge-muted">{c.dept}</span></td>
                   <td style={{ fontSize: 12 }}>{c.diagnosis || '-'}</td>
                   <td><span className={`badge ${consultStatus[c.status]}`}>{c.status}</span></td>
@@ -206,7 +206,7 @@ export default function ClinicsPage() {
         <div className="form-row">
           <div className="form-group">
             <label className="form-label">Assign Doctor</label>
-            <select className="form-input" value={formData.doctor} onChange={e => setFormData({...formData, doctor: e.target.value})}>
+            <select className="form-input" value={formData.doctorName} onChange={e => setFormData({...formData, doctorName: e.target.value})}>
               {doctors.filter(d => d.status !== 'Off Duty').map(d => <option key={d.name} value={d.name}>{d.name}</option>)}
             </select>
           </div>

@@ -52,7 +52,7 @@ export default function Sidebar() {
           <Activity size={18} color="white" />
         </div>
         <div>
-          <div className="sidebar-logo-text">DHS Hospital</div>
+          <div className="sidebar-logo-text">Grabbo Fertility Clinic</div>
           <div className="sidebar-logo-sub">Workspace UI</div>
         </div>
       </div>

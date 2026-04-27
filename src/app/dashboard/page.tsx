@@ -60,7 +60,7 @@ export default function Dashboard() {
   const { user } = useAuth();
 
   return (
-    <AppLayout title="Admin Dashboard" subtitle="DHS Hospital Workspace · Overview">
+    <AppLayout title="Admin Dashboard" subtitle="Grabbo Fertility Clinic · Overview">
       {/* Welcome message */}
       {user && (
         <div style={{ marginBottom: 20, padding: '16px 20px', background: 'var(--primary-muted)', border: '1px solid rgba(13,148,136,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

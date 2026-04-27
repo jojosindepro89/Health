@@ -27,7 +27,7 @@ const stats = [
   { value: '15min', label: 'Avg. Setup Time' },
 ];
 const testimonials = [
-  { name: 'Dr. Amaka Obi', role: 'CMO, Lagos State Hospital', quote: 'DHS transformed our workflow. Patient wait times dropped by 40% in the first month.', stars: 5 },
+  { name: 'Dr. Amaka Obi', role: 'CMO, Lagos State Hospital', quote: 'Grabbo Fertility Clinic transformed our workflow. Patient wait times dropped by 40% in the first month.', stars: 5 },
   { name: 'Chukwuemeka Eze', role: 'Admin, UCH Ibadan', quote: 'The billing module alone pays for itself. HMO claim rejections went from 18% to under 2%.', stars: 5 },
   { name: 'Nurse Fatima Bello', role: 'Ward Manager, ABUTH', quote: 'Finally a system that works the way nurses actually work — real-time and intuitive.', stars: 5 },
 ];
@@ -57,7 +57,7 @@ export default function LandingPage() {
             <div style={{ width: 34, height: 34, background: 'linear-gradient(135deg, var(--primary), var(--accent))', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Activity size={18} color="white" />
             </div>
-            <span style={{ fontWeight: 800, fontSize: 16 }}>DHS Workspace</span>
+            <span style={{ fontWeight: 800, fontSize: 16 }}>Grabbo Fertility Clinic</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: 28 }}>
             {['Solutions', 'Features', 'Pricing', 'Contact'].map(l => (
@@ -103,7 +103,7 @@ export default function LandingPage() {
           <div style={{ position: 'relative' }}>
             <div style={{ position: 'absolute', inset: -20, background: 'radial-gradient(circle at 50% 50%, rgba(13,148,136,0.12) 0%, transparent 70%)', borderRadius: '50%' }} />
             <div style={{ position: 'relative', borderRadius: 20, overflow: 'hidden', boxShadow: '0 32px 80px rgba(0,0,0,0.5)', border: '1px solid var(--border-2)' }}>
-              <Image src="/doctor-hero.png" alt="DHS Hospital Doctor" width={560} height={500} style={{ objectFit: 'cover', display: 'block', width: '100%', height: 'auto' }} priority />
+              <Image src="/doctor-hero.png" alt="Grabbo Fertility Clinic Doctor" width={560} height={500} style={{ objectFit: 'cover', display: 'block', width: '100%', height: 'auto' }} priority />
               <div style={{ position: 'absolute', bottom: 20, right: 20, background: 'rgba(11,17,32,0.9)', backdropFilter: 'blur(12px)', border: '1px solid var(--border-2)', borderRadius: 12, padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 12 }}>
                 <div style={{ width: 36, height: 36, background: 'var(--primary-muted)', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Bell size={16} color="var(--primary-light)" /></div>
                 <div><div style={{ fontSize: 11, color: 'var(--text-muted)' }}>16 labs in 6 queues</div><div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)' }}>+8% ✓ All systems normal</div></div>
@@ -149,7 +149,7 @@ export default function LandingPage() {
       {/* STAKEHOLDERS */}
       <section id="solutions" style={{ background: 'var(--bg-card)', padding: '100px 24px', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-          <div style={{ marginBottom: 60 }}><h2 style={{ fontSize: 40, fontWeight: 800, marginBottom: 12, letterSpacing: -0.5 }}>Tailored for Every Stakeholder</h2><p style={{ fontSize: 16, color: 'var(--text-secondary)', maxWidth: 480 }}>The DHS Workspace adapts to the specific needs of different roles within your hospital.</p></div>
+          <div style={{ marginBottom: 60 }}><h2 style={{ fontSize: 40, fontWeight: 800, marginBottom: 12, letterSpacing: -0.5 }}>Tailored for Every Stakeholder</h2><p style={{ fontSize: 16, color: 'var(--text-secondary)', maxWidth: 480 }}>The Grabbo Fertility Clinic system adapts to the specific needs of different roles within your hospital.</p></div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 20 }}>
             {stakeholders.map(s => (
               <div key={s.role} style={{ background: 'var(--bg)', border: '1px solid var(--border)', borderRadius: 16, padding: '32px 28px', transition: 'border-color 0.2s' }}
@@ -188,7 +188,7 @@ export default function LandingPage() {
         <div style={{ maxWidth: 800, margin: '0 auto', background: 'linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%)', borderRadius: 24, padding: '60px 48px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <div style={{ position: 'relative' }}>
             <h2 style={{ fontSize: 36, fontWeight: 800, color: 'white', marginBottom: 16 }}>Ready to Elevate Your Standard of Care?</h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.8)', marginBottom: 36 }}>Join over 50 medical centres choosing DHS Workspace for their daily operations.</p>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.8)', marginBottom: 36 }}>Join over 50 medical centres choosing Grabbo Fertility Clinic for their daily operations.</p>
             <div style={{ display: 'flex', gap: 12, justifyContent: 'center' }}>
               <Link href="/signup" style={{ padding: '13px 28px', background: 'white', color: 'var(--primary-dark)', borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: 'none' }}>Request Demo Now</Link>
               <Link href="/login" style={{ padding: '13px 28px', background: 'rgba(255,255,255,0.15)', color: 'white', borderRadius: 10, fontWeight: 600, fontSize: 15, textDecoration: 'none', border: '1px solid rgba(255,255,255,0.3)' }}>Talk to Sales</Link>
@@ -202,12 +202,12 @@ export default function LandingPage() {
         <div style={{ maxWidth: 1200, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div style={{ width: 28, height: 28, background: 'linear-gradient(135deg, var(--primary), var(--accent))', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Activity size={14} color="white" /></div>
-            <div><div style={{ fontWeight: 700, fontSize: 13 }}>DHS Workspace</div><div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Digital Hospital Virtual Environment Company</div></div>
+            <div><div style={{ fontWeight: 700, fontSize: 13 }}>Grabbo Fertility Clinic</div><div style={{ fontSize: 11, color: 'var(--text-muted)' }}>Fertility Clinic and Diagnostic Centre</div></div>
           </div>
           <div style={{ display: 'flex', gap: 24 }}>
             {['Privacy Policy', 'Terms of Service', 'HIPAA Compliance', 'Support'].map(l => (<a key={l} href="#" style={{ fontSize: 13, color: 'var(--text-muted)', textDecoration: 'none' }}>{l}</a>))}
           </div>
-          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>© 2025 DHS Workspace. All rights reserved.</div>
+          <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>© 2025 Grabbo Fertility Clinic and Diagnostic Centre. All rights reserved.</div>
         </div>
       </footer>
     </div>

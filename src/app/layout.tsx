@@ -6,8 +6,8 @@ import { ToastProvider } from "@/lib/toast";
 import { AuthProvider } from "@/lib/auth";
 
 export const metadata: Metadata = {
-  title: "DHS Hospital Workspace",
-  description: "DHS Hospital Management System — A comprehensive workspace for healthcare administration, patient management, pharmacy, laboratory, finance, and more.",
+  title: "Grabbo Fertility Clinic and Diagnostic Centre",
+  description: "Grabbo Fertility Clinic and Diagnostic Centre — A comprehensive workspace for healthcare administration, patient management, pharmacy, laboratory, finance, and more.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

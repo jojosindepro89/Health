@@ -26,7 +26,7 @@ export default function AppLayout({ title, subtitle, children }: AppLayoutProps)
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '100vh', background: 'var(--bg)' }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ width: 40, height: 40, border: '3px solid var(--primary)', borderTopColor: 'transparent', borderRadius: '50%', animation: 'spin 0.8s linear infinite', margin: '0 auto 12px' }} />
-          <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>Loading DHS Workspace...</div>
+          <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>Loading Grabbo Fertility Clinic...</div>
         </div>
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>

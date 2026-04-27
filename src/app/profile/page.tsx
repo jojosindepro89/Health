@@ -53,7 +53,7 @@ export default function ProfilePage() {
               </div>
               <div className="form-group" style={{ marginBottom: 0 }}>
                 <label className="form-label">Last Name</label>
-                <input className="form-input" defaultValue="DHS" />
+                <input className="form-input" defaultValue="Grabbo" />
               </div>
             </div>
             <div className="form-group">
@@ -79,7 +79,7 @@ export default function ProfilePage() {
             </div>
             <div className="form-group">
               <label className="form-label">Bio</label>
-              <textarea className="form-input" rows={3} defaultValue="Hospital system administrator managing DHS Workspace." style={{ resize: 'vertical' }} />
+              <textarea className="form-input" rows={3} defaultValue="Hospital system administrator managing Grabbo Fertility Clinic." style={{ resize: 'vertical' }} />
             </div>
             <button className="btn btn-primary">Save Changes</button>
           </div>
@@ -87,7 +87,7 @@ export default function ProfilePage() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <div className="card" style={{ textAlign: 'center' }}>
               <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'linear-gradient(135deg, var(--primary), var(--accent))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, fontWeight: 700, color: 'white', margin: '0 auto 12px' }}>AD</div>
-              <div style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)' }}>Admin DHS</div>
+              <div style={{ fontWeight: 700, fontSize: 16, color: 'var(--text-primary)' }}>Admin Grabbo</div>
               <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>System Administrator</div>
               <button className="btn btn-secondary btn-sm" style={{ width: '100%', justifyContent: 'center' }}>
                 <Camera size={13} /> Change Photo

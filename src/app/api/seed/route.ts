@@ -15,11 +15,11 @@ export async function POST(req: NextRequest) {
   const [admin, desk] = await Promise.all([
     db.user.create({
       data: {
-        name: 'Admin DHS',
+        name: 'Admin Grabbo',
         email: 'admin@dhs.ng',
         password: await bcrypt.hash('admin123', 12),
         role: 'super_admin',
-        hospital: 'DHS Hospital',
+        hospital: 'Grabbo Fertility Clinic',
       },
     }),
     db.user.create({
@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
         email: 'desk@dhs.ng',
         password: await bcrypt.hash('desk123', 12),
         role: 'front_desk',
-        hospital: 'DHS Hospital',
+        hospital: 'Grabbo Fertility Clinic',
       },
     }),
   ]);

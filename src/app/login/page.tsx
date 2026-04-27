@@ -47,7 +47,7 @@ export default function LoginPage() {
 
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none', marginBottom: 'auto' }}>
           <div style={{ width: 36, height: 36, background: 'linear-gradient(135deg, var(--primary), var(--accent))', borderRadius: 9, display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Activity size={20} color="white" /></div>
-          <span style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)' }}>DHS Workspace</span>
+          <span style={{ fontWeight: 800, fontSize: 18, color: 'var(--text-primary)' }}>Grabbo Fertility Clinic</span>
         </Link>
 
         <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', maxWidth: 420 }}>
@@ -56,7 +56,7 @@ export default function LoginPage() {
             <span style={{ background: 'linear-gradient(90deg, var(--primary), var(--accent))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>smarter.</span>
           </h1>
           <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 40 }}>
-            Log in to your DHS Workspace to manage patients, labs, pharmacy, finance, and more — all in one place.
+            Log in to Grabbo Fertility Clinic to manage patients, labs, pharmacy, finance, and more — all in one place.
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>

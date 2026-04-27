@@ -198,7 +198,7 @@ export default function LaboratoryPage() {
         <div className="form-row">
           <div className="form-group">
             <label className="form-label">Priority</label>
-            <select className="form-input" value={formData.priority} onChange={e => setFormData({...formData, priority: e.target.value as any})}>
+            <select className="form-input" value={formData.priority} onChange={e => setFormData({...formData, priority: e.target.value as 'Routine' | 'Urgent'})}>
               <option value="Routine">Routine</option>
               <option value="Urgent">Urgent</option>
             </select>

@@ -219,7 +219,7 @@ export default function ClinicsPage() {
         </div>
         <div className="form-group">
           <label className="form-label">Priority</label>
-          <select className="form-input" value={formData.priority} onChange={e => setFormData({...formData, priority: e.target.value as any})}>
+          <select className="form-input" value={formData.priority} onChange={e => setFormData({...formData, priority: e.target.value as 'Normal' | 'Urgent'})}>
             <option value="Normal">Normal</option>
             <option value="Urgent">Urgent</option>
           </select>

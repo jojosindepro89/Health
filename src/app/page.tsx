@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useAuth } from '@/lib/auth';
 import {
   Activity, Shield, Users, Stethoscope, Smartphone,
-  Check, Star, ArrowRight, BedDouble, CreditCard, Bell, FlaskConical,
+  Check, Star, ArrowRight, BedDouble, CreditCard, Bell,
 } from 'lucide-react';
 
 const features = [
@@ -175,7 +175,7 @@ export default function LandingPage() {
             {testimonials.map(t => (
               <div key={t.name} style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 16, padding: '28px 24px' }}>
                 <div style={{ display: 'flex', gap: 3, marginBottom: 16 }}>{Array.from({ length: t.stars }).map((_, i) => <Star key={i} size={14} fill="#f59e0b" color="#f59e0b" />)}</div>
-                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 20, fontStyle: 'italic' }}>"{t.quote}"</p>
+                <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.7, marginBottom: 20, fontStyle: 'italic' }}>&quot;{t.quote}&quot;</p>
                 <div><div style={{ fontSize: 13, fontWeight: 700 }}>{t.name}</div><div style={{ fontSize: 12, color: 'var(--text-muted)', marginTop: 2 }}>{t.role}</div></div>
               </div>
             ))}

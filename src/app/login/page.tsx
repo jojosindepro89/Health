@@ -147,7 +147,7 @@ export default function LoginPage() {
           </form>
 
           <div style={{ textAlign: 'center', marginTop: 28, paddingTop: 28, borderTop: '1px solid var(--border)' }}>
-            <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>Don't have an account? </span>
+            <span style={{ fontSize: 14, color: 'var(--text-muted)' }}>Don&apos;t have an account? </span>
             <Link href="/signup" style={{ fontSize: 14, fontWeight: 700, color: 'var(--primary-light)', textDecoration: 'none' }}>Create one →</Link>
           </div>
 

@@ -1,6 +1,6 @@
 'use client';
 import AppLayout from '@/components/AppLayout';
-import { UserPlus, Search, Filter, Download, Eye, Edit, Trash2 } from 'lucide-react';
+import { UserPlus, Search, Download, Edit, Trash2 } from 'lucide-react';
 import { useState } from 'react';
 import { useStore, Patient } from '@/lib/store';
 import { useToast } from '@/lib/toast';

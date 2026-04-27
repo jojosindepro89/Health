@@ -2,8 +2,8 @@
 import AppLayout from '@/components/AppLayout';
 import {
   Users, Activity, BedDouble, CreditCard,
-  TrendingUp, TrendingDown, Clock, CheckCircle2,
-  AlertCircle, Stethoscope, FlaskConical, Pill, MoreVertical
+  TrendingUp, Clock, CheckCircle2,
+  AlertCircle, Stethoscope, FlaskConical, Pill
 } from 'lucide-react';
 import {
   AreaChart, Area, BarChart, Bar, XAxis, YAxis,
@@ -66,7 +66,7 @@ export default function Dashboard() {
         <div style={{ marginBottom: 20, padding: '16px 20px', background: 'var(--primary-muted)', border: '1px solid rgba(13,148,136,0.2)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <div>
             <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)' }}>Good morning, {user.name.split(' ')[0]}! 👋</div>
-            <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 2 }}>Here's your {user.hospital} overview for today.</div>
+            <div style={{ fontSize: 13, color: 'var(--text-secondary)', marginTop: 2 }}>Here&apos;s your {user.hospital} overview for today.</div>
           </div>
           <div style={{ fontSize: 12, color: 'var(--primary-light)', background: 'var(--primary-muted)', border: '1px solid rgba(13,148,136,0.3)', borderRadius: 6, padding: '4px 10px', fontWeight: 600 }}>
             {new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}

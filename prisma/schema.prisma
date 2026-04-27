@@ -1,0 +1,139 @@
+// prisma/schema.prisma - Prisma 7 format (no datasource url in schema)
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      String   @default("front_desk")
+  hospital  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  consultations  Consultation[]
+  labRequests    LabRequest[]
+  prescriptions  Prescription[]
+  printLogs      PrintLog[]
+}
+
+model Patient {
+  id          String   @id @default(cuid())
+  patientCode String   @unique
+  firstName   String
+  lastName    String
+  age         Int
+  gender      String
+  phone       String
+  email       String   @default("")
+  hmo         String   @default("Self Pay")
+  dept        String
+  address     String   @default("")
+  bloodGroup  String   @default("O+")
+  status      String   @default("Active")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  consultations Consultation[]
+  labRequests   LabRequest[]
+  prescriptions Prescription[]
+  invoices      Invoice[]
+  admissions    Admission[]
+}
+
+model Consultation {
+  id          String   @id @default(cuid())
+  consultCode String   @unique
+  patientId   String
+  patient     Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  doctorId    String?
+  doctor      User?    @relation(fields: [doctorId], references: [id])
+  doctorName  String
+  dept        String
+  complaint   String
+  diagnosis   String   @default("")
+  notes       String   @default("")
+  priority    String   @default("Normal")
+  status      String   @default("Waiting")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model LabRequest {
+  id              String   @id @default(cuid())
+  labCode         String   @unique
+  patientId       String
+  patient         Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  requestedById   String?
+  requestedBy     User?    @relation(fields: [requestedById], references: [id])
+  requestedByName String
+  test            String
+  dept            String
+  priority        String   @default("Routine")
+  status          String   @default("Pending")
+  result          String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Prescription {
+  id              String   @id @default(cuid())
+  rxCode          String   @unique
+  patientId       String
+  patient         Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  prescribedById  String?
+  prescribedBy    User?    @relation(fields: [prescribedById], references: [id])
+  doctorName      String
+  drugs           String
+  notes           String   @default("")
+  status          String   @default("Pending")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Invoice {
+  id        String   @id @default(cuid())
+  invCode   String   @unique
+  patientId String
+  patient   Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  services  String
+  amount    Float
+  hmo       String   @default("Self Pay")
+  status    String   @default("Pending")
+  paid      Float    @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  printLogs PrintLog[]
+}
+
+model Admission {
+  id           String    @id @default(cuid())
+  admCode      String    @unique
+  patientId    String
+  patient      Patient   @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  ward         String
+  bed          String
+  doctorName   String
+  diagnosis    String
+  admittedAt   DateTime  @default(now())
+  dischargedAt DateTime?
+  updatedAt    DateTime  @updatedAt
+}
+
+model PrintLog {
+  id          String   @id @default(cuid())
+  logCode     String   @unique
+  invoiceId   String
+  invoice     Invoice  @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  printedById String
+  printedBy   User     @relation(fields: [printedById], references: [id])
+  createdAt   DateTime @default(now())
+}

@@ -1,0 +1,165 @@
+Retrieving project…
+Deploying joseph-basseys-projects-27fc4c7d/dhs-hospital-workspace
+Uploading [--------------------] (0.0B/356B)
+Uploading [===============-----] (268.0B/356B)
+Uploading [====================] (356.0B/356B)
+Inspect: https://vercel.com/joseph-basseys-projects-27fc4c7d/dhs-hospital-workspace/6eeqxFcYFvEKMTEQgQ1zgaMp9nsC [4s]
+Production: https://dhs-hospital-workspace-h24tboe0j.vercel.app [4s]
+https://dhs-hospital-workspace-h24tboe0j.vercel.appBuilding...
+Building...
+Building: Running build in Washington, D.C., USA (East) – iad1
+Building: Build machine configuration: 2 cores, 8 GB
+Building: Retrieving list of deployment files...
+Building: Previous build caches not available.
+Building: Downloading 68 deployment files...
+Building: Running "vercel build"
+Building: Vercel CLI 51.6.1
+Building: Installing dependencies...
+Building: [1.39ms] ".env"
+Building: bun install v1.3.6 (d530ed99)
+Building: + @types/bcryptjs@3.0.0
+Building: + @types/better-sqlite3@7.6.13
+Building: + @types/jsonwebtoken@9.0.10
+Building: + @types/node@20.19.39
+Building: + @types/react@19.2.14
+Building: + @types/react-dom@19.2.3
+Building: + eslint@9.39.4
+Building: + eslint-config-next@16.2.4
+Building: + typescript@5.9.3
+Building: + @prisma/adapter-better-sqlite3@7.8.0
+Building: + @prisma/client@7.8.0
+Building: + bcryptjs@3.0.3
+Building: + better-sqlite3@12.9.0
+Building: + date-fns@4.1.0
+Building: + jsonwebtoken@9.0.3
+Building: + lucide-react@1.11.0
+Building: + next@16.2.4
+Building: + prisma@7.8.0
+Building: + react@19.2.4
+Building: + react-dom@19.2.4
+Building: + recharts@3.8.1
+Building: 519 packages installed [8.77s]
+Building: Detected Next.js version: 16.2.4
+Building: Running "bun run build"
+Building: $ next build
+Building: ⚠ `eslint` configuration in next.config.ts is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
+Building: ⚠ Invalid next.config.ts options detected:
+Building: ⚠     Unrecognized key(s) in object: 'eslint'
+Building: ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+Building: Applying modifyConfig from Vercel
+Building: Attention: Next.js now collects completely anonymous telemetry regarding usage.
+Building: This information is used to shape Next.js' roadmap and prioritize features.
+Building: You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+Building: https://nextjs.org/telemetry
+Building: ▲ Next.js 16.2.4 (Turbopack)
+Building: - Environments: .env
+Building: Creating an optimized production build ...
+Building: ✓ Compiled successfully in 10.8s
+Building: Skipping validation of types
+Building: Finished TypeScript config validation in 11ms ...
+Building: Collecting page data using 1 worker ...
+Building: Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+Building: Require stack:
+Building: - /vercel/path0/node_modules/@prisma/client/default.js
+Building: - /vercel/path0/.next/server/chunks/[root-of-the-server]__0pi8qet._.js
+Building: - /vercel/path0/.next/server/chunks/[turbopack]_runtime.js
+Building: - /vercel/path0/.next/server/app/api/admissions/[id]/discharge/route.js
+Building: - /vercel/path0/node_modules/next/dist/server/require.js
+Building: - /vercel/path0/node_modules/next/dist/server/load-components.js
+Building: - /vercel/path0/node_modules/next/dist/build/utils.js
+Building: - /vercel/path0/node_modules/next/dist/build/worker.js
+Building: - /vercel/path0/node_modules/next/dist/compiled/jest-worker/processChild.js
+Building: at Context.externalRequire [as x] (.next/server/chunks/[turbopack]_runtime.js:624:15)
+Building: at module evaluation (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:897)
+Building: at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:853:9)
+Building: at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:877:12)
+Building: at Context.esmImport [as i] (.next/server/chunks/[turbopack]_runtime.js:281:20)
+Building: at <unknown> (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:1155)
+Building: at Context.asyncModule [as a] (.next/server/chunks/[turbopack]_runtime.js:525:5)
+Building: at module evaluation (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:1120)
+Building: at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:853:9)
+Building: at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:877:12)
+2026-04-27T20:31:52.915Z  Running build in Washington, D.C., USA (East) – iad1
+2026-04-27T20:31:52.915Z  Build machine configuration: 2 cores, 8 GB
+2026-04-27T20:31:53.021Z  Retrieving list of deployment files...
+2026-04-27T20:31:53.025Z  Previous build caches not available.
+2026-04-27T20:31:53.483Z  Downloading 68 deployment files...
+2026-04-27T20:31:54.216Z  Running "vercel build"
+2026-04-27T20:31:54.970Z  Vercel CLI 51.6.1
+2026-04-27T20:31:55.316Z  Installing dependencies...
+2026-04-27T20:31:55.356Z  [1.39ms] ".env"
+2026-04-27T20:31:55.361Z  bun install v1.3.6 (d530ed99)
+2026-04-27T20:32:04.117Z  
+2026-04-27T20:32:04.117Z  + @types/bcryptjs@3.0.0
+2026-04-27T20:32:04.117Z  + @types/better-sqlite3@7.6.13
+2026-04-27T20:32:04.117Z  + @types/jsonwebtoken@9.0.10
+2026-04-27T20:32:04.117Z  + @types/node@20.19.39
+2026-04-27T20:32:04.117Z  + @types/react@19.2.14
+2026-04-27T20:32:04.118Z  + @types/react-dom@19.2.3
+2026-04-27T20:32:04.118Z  + eslint@9.39.4
+2026-04-27T20:32:04.118Z  + eslint-config-next@16.2.4
+2026-04-27T20:32:04.118Z  + typescript@5.9.3
+2026-04-27T20:32:04.118Z  + @prisma/adapter-better-sqlite3@7.8.0
+2026-04-27T20:32:04.118Z  + @prisma/client@7.8.0
+2026-04-27T20:32:04.118Z  + bcryptjs@3.0.3
+2026-04-27T20:32:04.118Z  + better-sqlite3@12.9.0
+2026-04-27T20:32:04.118Z  + date-fns@4.1.0
+2026-04-27T20:32:04.118Z  + jsonwebtoken@9.0.3
+2026-04-27T20:32:04.118Z  + lucide-react@1.11.0
+2026-04-27T20:32:04.118Z  + next@16.2.4
+2026-04-27T20:32:04.119Z  + prisma@7.8.0
+2026-04-27T20:32:04.119Z  + react@19.2.4
+2026-04-27T20:32:04.119Z  + react-dom@19.2.4
+2026-04-27T20:32:04.119Z  + recharts@3.8.1
+2026-04-27T20:32:04.119Z  
+2026-04-27T20:32:04.119Z  519 packages installed [8.77s]
+2026-04-27T20:32:04.136Z  Detected Next.js version: 16.2.4
+2026-04-27T20:32:04.138Z  Running "bun run build"
+2026-04-27T20:32:04.141Z  $ next build
+2026-04-27T20:32:05.247Z  ⚠ `eslint` configuration in next.config.ts is no longer supported. See more info here: https://nextjs.org/docs/app/api-reference/cli/next#next-lint-options
+2026-04-27T20:32:05.269Z  ⚠ Invalid next.config.ts options detected:
+2026-04-27T20:32:05.269Z  ⚠     Unrecognized key(s) in object: 'eslint'
+2026-04-27T20:32:05.270Z  ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+2026-04-27T20:32:05.567Z  Applying modifyConfig from Vercel
+2026-04-27T20:32:05.851Z  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2026-04-27T20:32:05.852Z  This information is used to shape Next.js' roadmap and prioritize features.
+2026-04-27T20:32:05.852Z  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2026-04-27T20:32:05.852Z  https://nextjs.org/telemetry
+2026-04-27T20:32:05.852Z  
+2026-04-27T20:32:05.868Z  ▲ Next.js 16.2.4 (Turbopack)
+2026-04-27T20:32:05.869Z  - Environments: .env
+2026-04-27T20:32:05.869Z  
+2026-04-27T20:32:05.911Z  Creating an optimized production build ...
+2026-04-27T20:32:17.130Z  ✓ Compiled successfully in 10.8s
+2026-04-27T20:32:17.142Z  Skipping validation of types
+2026-04-27T20:32:17.153Z  Finished TypeScript config validation in 11ms ...
+2026-04-27T20:32:17.156Z  Collecting page data using 1 worker ...
+2026-04-27T20:32:17.755Z  Error: Failed to load external module @prisma/client-2c3a283f134fdcb6: Error: Cannot find module '.prisma/client/default'
+2026-04-27T20:32:17.755Z  Require stack:
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/@prisma/client/default.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/.next/server/chunks/[root-of-the-server]__0pi8qet._.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/.next/server/chunks/[turbopack]_runtime.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/.next/server/app/api/admissions/[id]/discharge/route.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/next/dist/server/require.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/next/dist/server/load-components.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/next/dist/build/utils.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/next/dist/build/worker.js
+2026-04-27T20:32:17.756Z  - /vercel/path0/node_modules/next/dist/compiled/jest-worker/processChild.js
+2026-04-27T20:32:17.756Z  at Context.externalRequire [as x] (.next/server/chunks/[turbopack]_runtime.js:624:15)
+2026-04-27T20:32:17.756Z  at module evaluation (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:897)
+2026-04-27T20:32:17.757Z  at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:853:9)
+2026-04-27T20:32:17.757Z  at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:877:12)
+2026-04-27T20:32:17.757Z  at Context.esmImport [as i] (.next/server/chunks/[turbopack]_runtime.js:281:20)
+2026-04-27T20:32:17.757Z  at <unknown> (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:1155)
+2026-04-27T20:32:17.757Z  at Context.asyncModule [as a] (.next/server/chunks/[turbopack]_runtime.js:525:5)
+2026-04-27T20:32:17.757Z  at module evaluation (.next/server/chunks/[root-of-the-server]__0pi8qet._.js:1:1120)
+2026-04-27T20:32:17.757Z  at instantiateModule (.next/server/chunks/[turbopack]_runtime.js:853:9)
+2026-04-27T20:32:17.757Z  at getOrInstantiateModuleFromParent (.next/server/chunks/[turbopack]_runtime.js:877:12)
+2026-04-27T20:32:18.258Z  
+2026-04-27T20:32:18.259Z  > Build error occurred
+2026-04-27T20:32:18.261Z  Error: Failed to collect page data for /api/admissions/[id]/discharge
+2026-04-27T20:32:18.261Z  at ignore-listed frames {
+2026-04-27T20:32:18.261Z  type: 'Error'
+2026-04-27T20:32:18.261Z  }
+2026-04-27T20:32:18.283Z  error: script "build" exited with code 1
+2026-04-27T20:32:18.295Z  Error: Command "bun run build" exited with 1

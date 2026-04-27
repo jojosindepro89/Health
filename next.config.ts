@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
   serverExternalPackages: ['better-sqlite3', '@prisma/adapter-better-sqlite3'],
+  outputFileTracingIncludes: {
+    '/api/**/*': ['./dev.db'],
+  },
 };
 
 export default nextConfig;

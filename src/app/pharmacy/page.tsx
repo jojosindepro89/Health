@@ -24,7 +24,7 @@ export default function PharmacyPage() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    patientId: '', drugs: '', doctor: 'Dr. Amaka Obi', notes: ''
+    patientId: '', drugs: '', doctorName: 'Dr. Amaka Obi', notes: ''
   });
 
   const dispensed = prescriptions.filter(p => p.status === 'Dispensed').length;
@@ -39,7 +39,6 @@ export default function PharmacyPage() {
 
     addPrescription({
       ...formData,
-      patientName: `${patient.firstName} ${patient.lastName}`,
       status: 'Pending'
     });
     toast('success', 'Prescription created successfully');
@@ -86,10 +85,10 @@ export default function PharmacyPage() {
               <tbody>
                 {prescriptions.map(p => (
                   <tr key={p.id}>
-                    <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{p.id}</td>
+                    <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{p.rxCode}</td>
                     <td>
-                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{p.patientName}</div>
-                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{p.doctor}</div>
+                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{p.patient ? `${p.patient.firstName} ${p.patient.lastName}` : p.patientId}</div>
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{p.doctorName}</div>
                     </td>
                     <td style={{ fontSize: 12, maxWidth: 180 }}>{p.drugs}</td>
                     <td><span className={`badge ${rxStatus[p.status]}`}>{p.status}</span></td>
@@ -182,7 +181,7 @@ export default function PharmacyPage() {
         </div>
         <div className="form-group">
           <label className="form-label">Prescribing Doctor</label>
-          <input className="form-input" value={formData.doctor} onChange={e => setFormData({...formData, doctor: e.target.value})} />
+          <input className="form-input" value={formData.doctorName} onChange={e => setFormData({...formData, doctorName: e.target.value})} />
         </div>
       </Modal>
 

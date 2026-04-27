@@ -18,12 +18,12 @@ const wards = [
 ];
 
 export default function WardsPage() {
-  const { patients, admissions, addAdmission, dischargePatient } = useStore();
+  const { patients, admissions, admitPatient, dischargePatient } = useStore();
   const { toast } = useToast();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    patientId: '', ward: 'General Ward A', bed: '', doctor: 'Dr. Amaka Obi', diagnosis: ''
+    patientId: '', ward: 'General Ward A', bed: '', doctorName: 'Dr. Amaka Obi', diagnosis: ''
   });
 
   const handleSave = () => {
@@ -34,18 +34,17 @@ export default function WardsPage() {
     const patient = patients.find(p => p.id === formData.patientId);
     if (!patient) return;
 
-    addAdmission({
+    admitPatient({
       ...formData,
-      patientName: `${patient.firstName} ${patient.lastName}`,
     });
     toast('success', 'Patient admitted successfully');
     setIsModalOpen(false);
   };
 
   const handleDischarge = (id: string, name: string) => {
-    if (confirm(`Are you sure you want to discharge ${name}?`)) {
+    if (confirm(`Are you sure you want to discharge this patient?`)) {
       dischargePatient(id);
-      toast('success', `${name} has been discharged`);
+      toast('success', `Patient has been discharged`);
     }
   };
 
@@ -121,19 +120,19 @@ export default function WardsPage() {
             <tbody>
               {admissions.map(a => (
                 <tr key={a.id}>
-                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{a.id}</td>
+                  <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{a.admCode}</td>
                   <td>
-                    <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{a.patientName}</div>
-                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{a.patientId}</div>
+                    <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{a.patient ? `${a.patient.firstName} ${a.patient.lastName}` : a.patientId}</div>
+                    <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{a.patient?.patientCode ?? a.patientId}</div>
                   </td>
                   <td><span className="badge badge-primary">{a.ward}</span></td>
                   <td style={{ fontWeight: 600, fontSize: 12 }}>{a.bed}</td>
-                  <td style={{ fontSize: 12 }}>{a.doctor}</td>
-                  <td style={{ fontSize: 12 }}>{a.admitted}</td>
+                  <td style={{ fontSize: 12 }}>{a.doctorName}</td>
+                  <td style={{ fontSize: 12 }}>{new Date(a.admittedAt).toLocaleDateString()}</td>
                   <td style={{ fontSize: 12 }}>{a.diagnosis}</td>
-                  <td><span className="badge badge-info">{a.days}d</span></td>
+                  <td><span className="badge badge-info">{Math.floor((Date.now() - new Date(a.admittedAt).getTime()) / 86400000)}d</span></td>
                   <td>
-                    <button className="btn btn-sm btn-outline" style={{ fontSize: 11 }} onClick={() => handleDischarge(a.id, a.patientName)}>Discharge</button>
+                    <button className="btn btn-sm btn-outline" style={{ fontSize: 11 }} onClick={() => handleDischarge(a.id, a.patient ? `${a.patient.firstName} ${a.patient.lastName}` : a.patientId)}>Discharge</button>
                   </td>
                 </tr>
               ))}
@@ -175,7 +174,7 @@ export default function WardsPage() {
         </div>
         <div className="form-group">
           <label className="form-label">Attending Doctor</label>
-          <input className="form-input" value={formData.doctor} onChange={e => setFormData({...formData, doctor: e.target.value})} />
+          <input className="form-input" value={formData.doctorName} onChange={e => setFormData({...formData, doctorName: e.target.value})} />
         </div>
       </Modal>
     </AppLayout>

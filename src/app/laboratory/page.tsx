@@ -26,7 +26,7 @@ export default function LaboratoryPage() {
   const [selectedReq, setSelectedReq] = useState<LabRequest | null>(null);
 
   const [formData, setFormData] = useState({
-    patientId: '', test: 'Full Blood Count', dept: 'Haematology', priority: 'Routine' as 'Routine' | 'Urgent', requestedBy: 'Dr. Amaka Obi'
+    patientId: '', test: 'Full Blood Count', dept: 'Haematology', priority: 'Routine' as 'Routine' | 'Urgent', requestedByName: 'Dr. Amaka Obi'
   });
   
   const [resultData, setResultData] = useState({ result: '' });
@@ -44,7 +44,6 @@ export default function LaboratoryPage() {
 
     addLabRequest({
       ...formData,
-      patientName: `${patient.firstName} ${patient.lastName}`,
       status: 'Pending'
     });
     toast('success', 'Lab request created successfully');
@@ -53,7 +52,7 @@ export default function LaboratoryPage() {
 
   const handleStart = (r: LabRequest) => {
     updateLabRequest(r.id, { status: 'In Progress' });
-    toast('info', `Started processing test for ${r.patientName}`);
+    toast('info', `Started processing test for ${r.patient ? `${r.patient.firstName} ${r.patient.lastName}` : r.patientId}`);
   };
 
   const handleOpenResult = (r: LabRequest) => {
@@ -120,15 +119,15 @@ export default function LaboratoryPage() {
               <tbody>
                 {labRequests.map(r => (
                   <tr key={r.id}>
-                    <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{r.id}</td>
+                    <td style={{ color: 'var(--primary-light)', fontWeight: 600 }}>{r.labCode}</td>
                     <td>
-                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{r.patientName}</div>
-                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{r.patientId}</div>
+                      <div style={{ fontWeight: 500, color: 'var(--text-primary)' }}>{r.patient ? `${r.patient.firstName} ${r.patient.lastName}` : r.patientId}</div>
+                      <div style={{ fontSize: 11, color: 'var(--text-muted)' }}>{r.patient?.patientCode ?? r.patientId}</div>
                     </td>
                     <td style={{ fontSize: 12 }}>{r.test}</td>
                     <td><span className="badge badge-muted">{r.dept}</span></td>
-                    <td style={{ fontSize: 12 }}>{r.requestedBy}</td>
-                    <td style={{ fontSize: 12 }}>{r.time}</td>
+                    <td style={{ fontSize: 12 }}>{r.requestedByName}</td>
+                    <td style={{ fontSize: 12 }}>{new Date(r.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                     <td><span className={`badge ${priorityMap[r.priority]}`}>{r.priority}</span></td>
                     <td><span className={`badge ${statusMap[r.status]}`}>{r.status}</span></td>
                     <td>
@@ -206,7 +205,7 @@ export default function LaboratoryPage() {
           </div>
           <div className="form-group">
             <label className="form-label">Requested By</label>
-            <input className="form-input" value={formData.requestedBy} onChange={e => setFormData({...formData, requestedBy: e.target.value})} />
+            <input className="form-input" value={formData.requestedByName} onChange={e => setFormData({...formData, requestedByName: e.target.value})} />
           </div>
         </div>
       </Modal>
@@ -221,7 +220,7 @@ export default function LaboratoryPage() {
         {selectedReq && (
           <div style={{ marginBottom: 16, padding: 12, background: 'var(--bg-card-2)', borderRadius: 8 }}>
             <div style={{ fontSize: 13, fontWeight: 600, color: 'var(--text-primary)' }}>{selectedReq.test}</div>
-            <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{selectedReq.patientName} ({selectedReq.patientId})</div>
+            <div style={{ fontSize: 12, color: 'var(--text-muted)' }}>{selectedReq.patient ? `${selectedReq.patient.firstName} ${selectedReq.patient.lastName}` : selectedReq.patientId} ({selectedReq.patientId})</div>
           </div>
         )}
         <div className="form-group">
